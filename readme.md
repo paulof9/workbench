@@ -1,0 +1,1 @@
+Olá! "Aqui estudo JavaScript seguindo os vídeos do "Curso em Vídeo", utilizando TailWind.
