@@ -91,7 +91,7 @@
             </div>
         </div>
 
-        <div class="pl-8""> <!-- Replicador de mensagens -->
+        <div class="pl-8"> <!-- Replicador de mensagens -->
         <h1 id="flooderbtnshow" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit cursor-pointer">Repetidor de mensagens</h1>
             <div id="floodercontent" class="grid grid-cols-2 w-[50%] mt-4 hidden">
                 <div class="flex flex-col gap-2">
@@ -128,6 +128,19 @@
             </div>
         </div>
 
+        <div class="pl-8"> <!--tabuada-->
+            <h1 id="tabuadaBtnShow" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit cursor-pointer">Tabuada</h1>
+                <div id="tabuadaContent" class="hidden mt-4">
+                    <label for="inputTabuada">Número:</label>
+                    <input type="number" name="inputTabuada" id="inputTabuada" class="text-black">
+                    <button id="tabuadaBtn" type="button" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit cursor-pointer">Gerar tabuada!</button>
+                    
+                    <div id="tabuadaRes" class="mt-4 p-2 bg-white min-h-60 w-36 text-black">
+
+                    </div>
+                </div>
+        </div>
+
     </div>
 <script src="./js/horas.js"></script>
 <script src="./js/botaoclique.js"></script>
@@ -135,5 +148,6 @@
 <script src="./js/calculadora.js"></script>
 <script src="./js/idade.js"></script>
 <script src="./js/flooder.js"></script>
+<script src="./js/tabuada.js"></script>
 </body>
 </html>

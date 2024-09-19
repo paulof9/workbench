@@ -28,21 +28,19 @@ var floodInput = document.getElementById('floodInput')                      //ms
                     loopvalor = 100
             }
 
-            var resultadoLoop = ''
-            var contadorLoop = 0
-
-            while(contadorLoop < loopvalor) {   //enquanto contadorLoop for menor que o valor selecionado acima nos radios,
-                resultadoLoop += valorInput     //o valor resultadoLoop (ficticio) será somado ao valor digitado no input
-                contadorLoop++                  //contagem para o loop terminar
+            var resultadoLoop = ''                                   //usando for
+            for(var contadorLoop = 0; contadorLoop < loopvalor; contadorLoop++) {
+                resultadoLoop += valorInput;
             }
+
             loopvalue.forEach((radio) => {
                 radio.checked = false;
             });
-
+                                                                    //usando while
             var valorfloodInputset = Number(floodInputset.value)
-                while (contadorLoop < valorfloodInputset) {
-                    resultadoLoop += valorInput
-                    contadorLoop++
+                while (contadorLoop < valorfloodInputset) {         //enquanto contadorLoop for menor que o valor selecionado acima nos radios,
+                    resultadoLoop += valorInput                     //o valor resultadoLoop (ficticio) será somado ao valor digitado no input
+                    contadorLoop++                                  //contagem para o loop terminar
                 }
             flooderRes.innerHTML = resultadoLoop;   //exibe na div o valor concatenado do while.
             contadorLoop = 0

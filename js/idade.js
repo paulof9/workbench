@@ -17,12 +17,12 @@ verificarIdadebtn.addEventListener('click', () => {
         return; // impede que o código seguinte seja executado a.k.a. break
     }
 
-    var nascimentoHj = new Date()                                           //pega dados de data do sistema
-    var ano = nascimentoHj.getFullYear()                                    //pega dados do ano
-    var nascimentoCalc =  ano - nascimento                                  //sistema - input
+    var nascimentoHj = new Date();                                           //pega dados de data do sistema
+    var ano = nascimentoHj.getFullYear();                                    //pega dados do ano
+    var nascimentoCalc =  ano - nascimento;                                  //sistema - input
 
     var sexo = document.getElementsByName('sexo');
-    var genero = ''
+    var genero = '';
         if (sexo[0].checked){                                               //0 masc, 1 fem (ordem dos radios)
             genero = 'Masculino'
         }else{
@@ -30,14 +30,14 @@ verificarIdadebtn.addEventListener('click', () => {
         }
 
     if(nascimentoCalc > 110 | nascimentoCalc === 0) {
-        respostaIdade.innerHTML=`${nascimentoCalc} anos... insira uma data válida!`
+        respostaIdade.innerHTML=`${nascimentoCalc} anos... insira uma data válida!`;
     }else{
         respostaIdade.innerHTML=`Informações:
         <br>${nascimentoCalc} anos
         <br> Gênero: ${genero}`
     }
 
-    document.getElementById('nascimento').value = ''                        //reseta input após tarefas
+    document.getElementById('nascimento').value = '';                        //reseta input após tarefas
 });
 
 function iniciarAtualizacao() {
