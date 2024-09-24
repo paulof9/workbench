@@ -19,7 +19,7 @@
     <div class="bg-gray-600 md:w-[90%] min-h-screen flex flex-col gap-8 m-auto items-left pt-8 pb-4"> <!--container-->
 
         <div class="pl-8" > <!--botao-->
-            <h1 id="DOM" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit cursor-pointer">Eventos DOM, clique!</h1>
+            <button type="button" id="DOM" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit cursor-pointer">Eventos DOM, clique!</button>
         </div>
 
         <div class="pl-8 gap-4">    <!--mini calculadora-->
@@ -35,7 +35,7 @@
         </div>
 
         <div class="pl-8" > <!--calc idade-->
-            <h1 id="idadebtn" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit cursor-pointer">Verificador de idade</h1>
+            <button type="button" id="idadebtn" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit cursor-pointer">Verificador de idade</button>
             <div id="idadecontent" class="flex flex-col mt-6 gap-4 hidden">
                 <div class="flex flex-rows gap-2">
                     <h1>Ano de nascimento:</h1>
@@ -99,7 +99,7 @@
                         <h1 class="text-center">REPETIDOR DE MENSAGENS</h1>
                         <label for="floodInput">Escreva sua mensagem aqui para repetir:</label>
                         <input type="text" name="floodInput" id="floodInput" class="text-black" autocomplete="off">
-                        <button id="flooderBtn" type="button" class="bg-blue-600 hover:bg-blue-800 border rounded-lg py-1 px-4">Ver</button>
+                        <button id="flooderBtn" type="button" class="bg-gray-400 text-black border-2 px-2 w-fit hover:bg-gray-500">Ver</button>
                     </div>
 
                     <div>
@@ -133,15 +133,34 @@
                 <div id="tabuadaContent" class="hidden mt-4">
                     <label for="inputTabuada">Número:</label>
                     <input type="number" name="inputTabuada" id="inputTabuada" class="text-black">
-                    <button id="tabuadaBtn" type="button" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit cursor-pointer">Gerar tabuada!</button>
+                    <button id="tabuadaBtn" type="button" class="bg-gray-400 text-black border-2 px-2 w-fit hover:bg-gray-500">Gerar tabuada!</button>
                     
                     <div id="tabuadaRes" class="mt-4 p-2 bg-white min-h-60 w-36 text-black">
-
                     </div>
                 </div>
         </div>
 
+        <div class="pl-8">
+            <label for="inputparimpar">Impar ou par?</label>
+            <input type="number" name="inputparimpar" id="inputparimpar" placeholder="Escreva aqui um número." class="text-black">
+            <button type="button" id="parimparBtn" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit ">Ver resultado</button>
+            <div id="parimparRes" class="text-black"></div>
+        </div>
+
+        <div class="pl-8 flex flex-col w-[40%]">
+            <h1>Analisador de números</h1>
+            <div class="flex flex-rows items-center gap-2">
+                <label for="analisadorInput">Números de 1 a 100:</label>
+                <input type="number" name="inputparimpar" id="analisadorInput" placeholder="Escreva aqui um número." class="text-black">
+                <button type="button" id="adicionarBtn" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit ">Adicionar</button>
+            </div>
+            <select name="lista" id="lista" size="8"></select>
+            <button type="button" id="analisarBtn" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit ">Ver resultado</button>
+            <div id="analiseRes" class="text-white"></div>
+        </div>
+
     </div>
+</div>
 <script src="./js/horas.js"></script>
 <script src="./js/botaoclique.js"></script>
 <script src="./js/minicalc.js"></script>
@@ -149,5 +168,7 @@
 <script src="./js/idade.js"></script>
 <script src="./js/flooder.js"></script>
 <script src="./js/tabuada.js"></script>
+<script src="./js/parimpar.js"></script>
+<script src="./js/analisador.js"></script>
 </body>
 </html>
