@@ -1,36 +1,39 @@
-const botaoCalc = document.getElementById('botaoCalc'); //pendente!
+const botaoCalc = document.getElementById('botaoCalc');
 const calc = document.getElementById('calc');
 
-botaoCalc.addEventListener('click', () => {             //arrow function, click recebe hidden
-    calc.classList.toggle('hidden');                    //atribui classe
+botaoCalc.addEventListener('click', () => {
+    calc.classList.toggle('hidden');
 });
 //
+
 'use strict';
 const display = document.getElementById('display');
 const numeros = document.querySelectorAll('[id*=tecla]');
 const operadores = document.querySelectorAll('[id*=op]');
 
-let novoNumero = true;
-let op;
-let numeroAnterior;
+let novoNumero = true;  //indica se um novo número está sendo digitado.
+let op;                 //guarda o operador atual (ex: +, -, *, /).
+let numeroAnterior;     //armazena o número antes de uma operação ser realizada.
 
-//sistema de novo valor ou operação pendente
+//verifica se já há um operador armazenado.
 const operacaoPendente = () => op != undefined;
 
+//Se houver uma operação pendente, pega o número atual do display (numeroAtual), usa o eval() para calcular o resultado da operação anterior e exibe o resultado.
 const calcular = () => {
-    if(operacaoPendente()){
-        const numeroAtual = parseFloat(display.textContent);
-        novoNumero = true;
-        const resultado = eval (`${numeroAnterior}${op}${numeroAtual}`)
-        attDisplay(resultado)
+    if(operacaoPendente()){                                             //se houver uma operação pendente
+        const numeroAtual = parseFloat(display.textContent);            //obtém o número atual do display
+        novoNumero = true;                                              //indica que um novo número será inserido
+        const resultado = eval (`${numeroAnterior}${op}${numeroAtual}`) //executa a operação armazenada usando eval
+        attDisplay(resultado)                                           //atualiza o display com o resultado
     }
 }
 
+//Exibe o número ou resultado no display. Se for um novo número, substitui o conteúdo; senão, concatena o novo número.
 const attDisplay = (texto) => {
-    if(novoNumero){                 //se o número for novo, adiciona e depois não se torna mais novo número
+    if(novoNumero){                 //se for um novo número, substitui o conteúdo do display
         display.textContent = texto;
-        novoNumero = false;
-    }else{                          //se não, concatena os números
+        novoNumero = false;         //a partir de agora, o número inserido será acumulado no display
+    }else{                          //se não for um novo número, concatena o texto ao conteúdo do display
     display.textContent += texto;
 }}
 
@@ -38,49 +41,42 @@ const attDisplay = (texto) => {
 evento: É o objeto que contém informações sobre o evento que ocorreu (por exemplo, um click).
 evento.target: É o elemento HTML que foi clicado (o alvo do evento).
 evento.target.textContent: É o texto dentro do elemento HTML clicado.
-(evento pode ser qualquer nome!)
-        function inserirNumero(evento) {
-            attDisplay(evento.target.textContent);
-        }
-interessante pensar como se fosse um X da matemática!
+(evento pode ser qualquer nome, interessante pensar como se fosse um X da matemática!)
 */ 
 
-//teclas
-    const inserirNumero = (evento) => attDisplay(evento.target.textContent);  //carrega a função de Se novoNumero de attDisplay
+//Teclas //Quando um botão de número é clicado, chama inserirNumero que atualiza o display com o número clicado.
+    const inserirNumero = (evento) => attDisplay(evento.target.textContent);
     numeros.forEach (numero => numero.addEventListener('click', inserirNumero));
-    //para cada tecla, torna-se clicavel e usa a função inserirNúmero, carregada com attDisplay
 
-//operadores
-    const selecionarOperador = (evento) => {
+//Operadores //Quando um operador é clicado, calcula o valor pendente, salva o operador e guarda o número anterior para a próxima operação.
+    const selecionarOperador = (evento) => { //"evento" remete ao evento de click
         if(!novoNumero) {
             calcular()
             novoNumero = true;
-            op = evento.target.textContent;        //identifica qual operador foi clicado
+            op = evento.target.textContent;
             numeroAnterior = parseFloat(display.textContent);
-            console.log (op);
         }
     }   //quando clicar em algum operador, diz que os numeros seguintes serão novos para realizar operação e guarda o anterior
     operadores.forEach (op => op.addEventListener('click', selecionarOperador));
 
-    //botao igual
+    //Botao igual //Quando o botão igual é clicado, calcula o resultado e finaliza a operação.
     const ativarIgual = () => {
         calcular();
-        op = undefined; //desclassifica contas pendentes
+        op = undefined; //Desclassifica contas pendentes
     }
     document.getElementById('igual').addEventListener('click', ativarIgual);
 
-    //botao limpar
+    //Botao limpar //Limpa o display e reinicia as variáveis.
     const limpar = () => {
-        display.textContent = '';  //limpar display e calculo
-        op = undefined;
-        novoNumero = true;
-        numeroAnterior = undefined;
+        display.textContent = '';    //limpar display
+        op = undefined;              //C calc
+        novoNumero = true;           //C calc
+        numeroAnterior = undefined;  //C calc
     }
     document.getElementById('limpar').addEventListener('click', limpar);
 
-    //botao backspace
+    //Botao backspace //Remove o último número do display (usando slice). //Inicia do zero e tira o ultimo.
     const removerUltimoNumero = () => display.textContent = display.textContent.slice(0, -1)
-                                    //metodo para arrays, inicia do zero e tira o ultimo
     document.getElementById('backspace').addEventListener('click', removerUltimoNumero)
 
 const mapaTeclado = {
@@ -102,10 +98,12 @@ const mapaTeclado = {
     'Backspace' : 'backspace',
     'c' : 'limpar',
 }
-const mapearTeclado = (evento) => {
-    const tecla = evento.key
 
-    const teclaPermitida = () => Object.keys(mapaTeclado).indexOf(tecla) != -1 //verifica se as teclas estao dentro de mapaTeclado e verifica se existe, sendo diferente de -1 (posicao de array)
-    if(teclaPermitida())    document.getElementById(mapaTeclado[tecla]).click();
+//Escuta eventos de teclado, verifica se a tecla pressionada está no mapaTeclado e simula um clique no botão correspondente.
+const mapearTeclado = (evento) => {
+    const tecla = evento.key                                                    //captura a tecla pressionada
+    const teclaPermitida = () => Object.keys(mapaTeclado).indexOf(tecla) != -1  //verifica se a tecla está no mapaTeclado
+    if(teclaPermitida())                                                        //se a tecla for permitida
+        document.getElementById(mapaTeclado[tecla]).click();              //simula o clique do botão correspondente à tecla pressionada
 }
-document.addEventListener('keydown', mapearTeclado);
+document.addEventListener('keydown', mapearTeclado);                      //escuta o evento de tecla pressionada
