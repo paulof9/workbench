@@ -61,30 +61,28 @@
 
         <div class="pl-8">  <!--calculadora-->
             <button id="botaoCalc" type="button" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2">Calculadora</button>
-            <div id="calc" class="mt-6 w-60 h-fit hidden overflow-hidden"> <!--container-->
-                <div class="bg-white rounded-lg p-4 flex flex-col drop-shadow-md relative text-black"> <!--corpo-->
-                    <div class="h-20 w-full text-black text-xl bg-gray-200 mb-2 px-4 overflow-x-auto"> <!--display-->
-                        <p id="display" class="text-right content-center text-5xl overflow-x-auto whitespace-nowrap"></p>
-                    </div>
+            <div id="calc" class="mt-6 w-60 h-fit overflow-hidden hidden"> <!--container hidden-->
+                <div class="bg-white rounded-lg p-4 flex flex-col drop-shadow-md relative text-black"> <!--corpo branco-->
+                    <div id="display" class="h-20 w-full text-black bg-gray-200 mb-2 px-4 text-right content-center text-5xl overflow-x-auto whitespace-nowrap"> <!--display--></div>
                     <div class="bg-gray-600 grid grid-rows-4 grid-cols-4 gap-2 p-4">  <!--teclas-->
-                        <button type="button" id="del" class="px-2 bg-white rounded">C</button>
-                        <button type="button" id="del1" class="px-2 bg-white rounded"><</button>
-                        <button type="button" id="div" class="px-2 bg-white rounded">div</button>
-                        <button type="button" id="vezes" class="px-2 bg-white rounded">*</button>
+                        <button type="button" id="limpar" class="px-2 bg-white rounded">C</button>
+                        <button type="button" id="backspace" class="px-2 bg-white rounded"><</button>
+                        <button type="button" id="opDivisao" class="px-2 bg-white rounded">/</button>
+                        <button type="button" id="opVezes" class="px-2 bg-white rounded">*</button>
         
-                        <button type="button" id="t7" class="botao px-2 bg-white rounded">7</button>
-                        <button type="button" id="t8" class="botao px-2 bg-white rounded">8</button>
-                        <button type="button" id="t9" class="botao px-2 bg-white rounded">9</button>
-                        <button type="button" id="menos" class="px-2 bg-white rounded">-</button>
+                        <button type="button" id="tecla7" class="botao px-2 bg-white rounded">7</button>
+                        <button type="button" id="tecla8" class="botao px-2 bg-white rounded">8</button>
+                        <button type="button" id="tecla9" class="botao px-2 bg-white rounded">9</button>
+                        <button type="button" id="opSubtracao" class="px-2 bg-white rounded">-</button>
         
-                        <button type="button" id="t4" class="botao px-2 bg-white rounded">4</button>
-                        <button type="button" id="t5" class="botao px-2 bg-white rounded">5</button>
-                        <button type="button" id="t6" class="botao px-2 bg-white rounded">6</button>
-                        <button type="button" id="mais" class="px-2 bg-white rounded">+</button>
+                        <button type="button" id="tecla4" class="botao px-2 bg-white rounded">4</button>
+                        <button type="button" id="tecla5" class="botao px-2 bg-white rounded">5</button>
+                        <button type="button" id="tecla6" class="botao px-2 bg-white rounded">6</button>
+                        <button type="button" id="opSoma" class="px-2 bg-white rounded">+</button>
         
-                        <button type="button" id="t1" class="botao px-2 bg-white rounded">1</button>
-                        <button type="button" id="t2" class="botao px-2 bg-white rounded">2</button>
-                        <button type="button" id="t3" class="botao px-2 bg-white rounded">3</button>
+                        <button type="button" id="tecla1" class="botao px-2 bg-white rounded">1</button>
+                        <button type="button" id="tecla2" class="botao px-2 bg-white rounded">2</button>
+                        <button type="button" id="tecla3" class="botao px-2 bg-white rounded">3</button>
                         <button type="button" id="igual" class="px-2 bg-white rounded">=</button>
                     </div>
                 </div>
@@ -140,14 +138,14 @@
                 </div>
         </div>
 
-        <div class="pl-8">
+        <div class="pl-8"> <!--impar ou par-->
             <label for="inputparimpar">Impar ou par?</label>
             <input type="number" name="inputparimpar" id="inputparimpar" placeholder="Escreva aqui um número." class="text-black">
             <button type="button" id="parimparBtn" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit ">Ver resultado</button>
             <div id="parimparRes" class="text-black"></div>
         </div>
 
-        <div class="pl-8 flex flex-col w-[40%]">
+        <div class="pl-8 flex flex-col w-[40%]"> <!-- analisador de numeros-->
             <h1>Analisador de números</h1>
             <div class="flex flex-rows items-center gap-2">
                 <label for="analisadorInput">Números de 1 a 100:</label>
