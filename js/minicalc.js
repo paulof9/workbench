@@ -1,3 +1,11 @@
+const minicalcBtnShow = document.getElementById('minicalcBtnShow');
+const minicalcContent = document.getElementById('minicalcContent');
+
+minicalcBtnShow.addEventListener('click', () => {
+    minicalcContent.classList.toggle('hidden');
+});
+//
+
 const somarbotao = document.getElementById('somar');           //botao 'Somar' no html, const pois o valor nao mudará.
 somarbotao.addEventListener('click', somar);                   //evento de click para a function
 

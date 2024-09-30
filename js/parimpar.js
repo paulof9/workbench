@@ -1,3 +1,10 @@
+const parimparBtnShow = document.getElementById('parimparBtnShow');
+const parimparContent = document.getElementById('parimparContent');
+
+parimparBtnShow.addEventListener('click', () => {
+    parimparContent.classList.toggle('hidden');
+});
+//
 var inputparimpar = document.getElementById('inputparimpar');
 var parimparRes = document.getElementById('parimparRes');
 const parimparBtn = document.getElementById('parimparBtn');

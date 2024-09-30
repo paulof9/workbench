@@ -1,3 +1,11 @@
+const analisadorBtnShow = document.getElementById('analisadorBtnShow');
+const analisadorContent = document.getElementById('analisadorContent');
+
+analisadorBtnShow.addEventListener('click', () => {
+    analisadorContent.classList.toggle('hidden');
+});
+//
+
 const analisadorInput = document.getElementById('analisadorInput'); //input
 const adicionarBtn = document.getElementById('adicionarBtn');       //btn
 const lista = document.getElementById('lista');                     //select

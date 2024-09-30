@@ -23,15 +23,18 @@
         </div>
 
         <div class="pl-8 gap-4">    <!--mini calculadora-->
-            <h1>Calculadora mais simples de soma</h1>
-            <div class="flex flex-rows items-center">
-                <input type="number" name="n1" id="n1" class="text-black">
-                <div><h1>+</h1></div>
-                <input type="number" name="n2" id="n2" class="text-black">
+            <button type="button" id="minicalcBtnShow" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit cursor-pointer">Calculadorazinha</button>
+            <div id="minicalcContent" class="hidden">
+                <h1>Calculadora mais simples de soma</h1>
+                <div class="flex flex-rows items-center">
+                    <input type="number" name="n1" id="n1" class="text-black">
+                    <div><h1>+</h1></div>
+                    <input type="number" name="n2" id="n2" class="text-black">
 
-                <input type="button" value="Somar" id="somar" class="bg-blue-600 hover:bg-blue-800 border rounded-lg px-2 py-1 w-fit cursor-pointer ml-2">
+                    <input type="button" value="Somar" id="somar" class="bg-blue-600 hover:bg-blue-800 border rounded-lg px-2 py-1 w-fit cursor-pointer ml-2">
+                </div>
+                <p id="resminicalc" class="text-white"></p>
             </div>
-            <p id="resminicalc" class="text-white"></p>
         </div>
 
         <div class="pl-8" > <!--calc idade-->
@@ -139,22 +142,46 @@
         </div>
 
         <div class="pl-8"> <!--impar ou par-->
-            <label for="inputparimpar">Impar ou par?</label>
-            <input type="number" name="inputparimpar" id="inputparimpar" placeholder="Escreva aqui um número." class="text-black">
-            <button type="button" id="parimparBtn" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit ">Ver resultado</button>
-            <div id="parimparRes" class="text-black"></div>
+            <button type="button" id="parimparBtnShow" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit cursor-pointer">Par Ímpar</button>
+            <div id="parimparContent" class="hidden">
+                <label for="inputparimpar">Impar ou par?</label>
+                <input type="number" name="inputparimpar" id="inputparimpar" placeholder="Escreva aqui um número." class="text-black">
+                <button type="button" id="parimparBtn" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit ">Ver resultado</button>
+                <div id="parimparRes" class="text-black"></div>
+            </div>
         </div>
 
-        <div class="pl-8 flex flex-col w-[40%]"> <!-- analisador de numeros-->
-            <h1>Analisador de números</h1>
-            <div class="flex flex-rows items-center gap-2">
-                <label for="analisadorInput">Números de 1 a 100:</label>
-                <input type="number" name="inputparimpar" id="analisadorInput" placeholder="Escreva aqui um número." class="text-black">
-                <button type="button" id="adicionarBtn" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit ">Adicionar</button>
+        <div class="pl-8 flex flex-col"> <!-- analisador de numeros-->
+            <button type="button" id="analisadorBtnShow" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit cursor-pointer">Analisador de números</button>
+            <div id="analisadorContent" class="hidden">
+                <h1>Analisador de números</h1>
+                <div class="flex flex-rows items-center gap-2">
+                    <label for="analisadorInput">Números de 1 a 100:</label>
+                    <input type="number" name="inputparimpar" id="analisadorInput" placeholder="Escreva aqui um número." class="text-black">
+                    <button type="button" id="adicionarBtn" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit ">Adicionar</button>
+                </div>
+                <select name="lista" id="lista" size="8" class="w-40"></select>
+                <button type="button" id="analisarBtn" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit ">Ver resultado</button>
+                <div id="analiseRes" class="text-white"></div>
             </div>
-            <select name="lista" id="lista" size="8"></select>
-            <button type="button" id="analisarBtn" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit ">Ver resultado</button>
-            <div id="analiseRes" class="text-white"></div>
+        </div>
+
+        <div class="pl-8"> <!-- semafaro-->
+            <button type="button" id="semafaroShowBtn" class="bg-blue-600 hover:bg-blue-800 border rounded-lg p-2 w-fit cursor-pointer"">Semáfaro</button>
+            <div id="semafaroContent" class="grid grid-cols-2 gap-4 w-80">
+                <div id="semafaroBody" class="mt-4 bg-gray-800 w-36 h-80 pt-4 pb-4 flex flex-col gap-4 items-center justify-between">
+                    <div class="p-10 bg-red-600 rounded-full w-fit" id="red"></div>
+                    <div class="p-10 bg-yellow-600 rounded-full w-fit" id="yellow"></div>
+                    <div class="p-10 bg-green-600 rounded-full w-fit" id="green"></div>
+                </div>
+
+                    <div class="flex flex-col gap-2 mt-4">
+                        <button type="button" id="vermelhoBtn" class="bg-gray-400 text-black border-2 px-2 w-fit hover:bg-gray-500">Vermelho</button>
+                        <button type="button" id="amareloBtn" class="bg-gray-400 text-black border-2 px-2 w-fit hover:bg-gray-500">Amarelo</button>
+                        <button type="button" id="verdeBtn" class="bg-gray-400 text-black border-2 px-2 w-fit hover:bg-gray-500">Verde</button>
+                        <button type="button" id="automaticoBtn" class="bg-gray-400 text-black border-2 px-2 w-fit hover:bg-gray-500">Automatico</button>
+                    </div>
+            </div>
         </div>
 
     </div>
@@ -168,5 +195,6 @@
 <script src="./js/tabuada.js"></script>
 <script src="./js/parimpar.js"></script>
 <script src="./js/analisador.js"></script>
+<script src="./js/semafaro.js"></script>
 </body>
 </html>
